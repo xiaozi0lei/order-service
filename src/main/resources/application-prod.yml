@@ -10,7 +10,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
 logging:
-  level: info
   path: /home/work/webserver/order-service/logs
 #    org.mybatis: error
     # 调试 javamail
