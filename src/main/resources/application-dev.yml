@@ -17,8 +17,7 @@ cas:
     # cas服务器host， 结束不带 /
     server-host: http://casserver.yxqiche.com
     # 客户端服务器host， 结束不带 /
-#    client-host: http://localhost:9090
-    client-host: http://order.hckk.com
+    client-host: http://localhost:9090
     # 基础信息服务地址
     user-host:
       - http://crmopenapi.yxqiche.com/baseinfapi
