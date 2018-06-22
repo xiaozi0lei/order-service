@@ -21,7 +21,7 @@ public class OrderServiceSwagger {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.hckk.qa.orderservice.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.hckk.sgl.orderservice.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

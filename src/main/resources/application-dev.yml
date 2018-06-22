@@ -8,11 +8,37 @@ spring:
     username: qaplatform
     password: Helloqa@2017
     driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: 192.168.155.150
+    port: 6379
+    password: Yixin4redis
+cas:
+  shiro:
+    # cas服务器host， 结束不带 /
+    server-host: http://casserver.yxqiche.com
+    # 客户端服务器host， 结束不带 /
+#    client-host: http://localhost:9090
+    client-host: http://order.hckk.com
+    # 基础信息服务地址
+    user-host:
+      - http://crmopenapi.yxqiche.com/baseinfapi
+    # 登录成功路径， 默认根目录
+    success-url: /
+    # 无权限页面路径
+    unauthorized-url: /unauthorized
+    # shiro 过滤器配置，cas 和 logout 过滤器已经默认添加
+    filter-chain-definitions:
+      - /unauthorized = anon
+      - /logout = anon
+      - /swagger-resources/** = anon
+      - /swagger-ui.html** = anon
+      - /webjars/** = anon
+      - /** = user
 
 logging:
   level:
-    com.hckk.qa.orderservice: debug
-#    org.mybatis: error
+    com.hckk.sgl.orderservice: debug
+#    org.mybatis: debug
     # 调试 javamail
 #    com.sun.mail: debug
 #    javax.mail: debug

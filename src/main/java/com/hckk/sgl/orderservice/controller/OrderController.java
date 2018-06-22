@@ -80,7 +80,8 @@ public class OrderController {
         String fileName = "易鑫加班申请表-产品技术部-" + LocalDate.now() + ".xlsx";
 
         HashMap<String, String> params = new HashMap<>();
-        exportExcelToUser(response, fileName, "产品技术部", params);
+        String firstDepartmentName = "产品技术部";
+        exportExcelToUser(response, fileName, firstDepartmentName, params);
 
         logger.info("订餐表 Excel 导出成功 - {}", fileName);
     }

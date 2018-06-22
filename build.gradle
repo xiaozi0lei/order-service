@@ -1,6 +1,7 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.2.RELEASE'
+//        springBootVersion = '2.0.2.RELEASE'
+        springBootVersion = '1.5.9.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -33,7 +34,7 @@ dependencies {
 //    compile('org.springframework.boot:spring-boot-starter-quartz')
     compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
     runtime('mysql:mysql-connector-java')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+//    testCompile('org.springframework.boot:spring-boot-starter-test')
 
     // 分布式协调技术 zookeeper
     // zookeeper 连接支持库，注册和获取 RPC 地址
@@ -49,7 +50,13 @@ dependencies {
     // swagger API UI
     compile('io.springfox:springfox-swagger2:2.7.0')
     compile('io.springfox:springfox-swagger-ui:2.7.0')
-
-    // 单点登录 SSO
-//	compile('org.springframework.security:spring-security-cas')
+    // 进行 http 请求的支持库
+    compile('io.rest-assured:rest-assured:3.0.3')
+    // 解析json数据
+    compile('com.alibaba:fastjson:1.2.37')
+    // 公司内部 CAS 单点登录
+    compile('com.yixin.crm:security-cas-client-spring-boot:0.0.2') {
+        exclude module: "slf4j-api"
+        exclude module: "commons-logging"
+    }
 }
