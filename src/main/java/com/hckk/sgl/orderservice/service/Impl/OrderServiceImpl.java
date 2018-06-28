@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Sun Guolei 2018/6/12 19:44
@@ -33,13 +34,12 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public int createOrder(Order order) {
         // 订餐时间从下午 12 点到 16 点 15
-        String start = "10:00:00";
+        String start = "12:00:00";
         String end = "16:15:00";
         // 获取当前时间
         LocalDateTime now = LocalDateTime.now();
 
         // 组装 order 对象
-        order.setNickname(order.getNickname());
         order.setOrderTime(now);
 
         if (DateUtils.betweenTime(now, start, end)) {
@@ -78,7 +78,16 @@ public class OrderServiceImpl implements OrderService {
         transferParams.put("address", params.get("address"));
         transferParams.put("nickname", params.get("nickname"));
 
-        return orderMapper.findOrdersInDate(transferParams);
+        List<Order> orderList = orderMapper.findOrdersInDate(transferParams);
+
+        // 时间格式转换，前端展示不支持 LocalDateTime
+        orderList = orderList.stream().peek(order -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日 hh:mm a");
+            String time = order.getOrderTime().format(formatter);
+            order.setFrontOrderTime(time);
+        }).collect(Collectors.toList());
+
+        return orderList;
     }
 
     @Override

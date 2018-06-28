@@ -15,9 +15,10 @@ spring:
 cas:
   shiro:
     # cas服务器host， 结束不带 /
-    server-host: http://casserver.yxqiche.com
+    server-host: http://test.casserver.yxqiche.com
     # 客户端服务器host， 结束不带 /
-    client-host: http://localhost:9090
+    client-host: http://test.order.hckk.com
+#    client-host: http://localhost:9090
     # 基础信息服务地址
     user-host:
       - http://crmopenapi.yxqiche.com/baseinfapi
@@ -37,6 +38,7 @@ cas:
 logging:
   level:
     com.hckk.sgl.orderservice: debug
+    com.yixin.crm: debug
 #    org.mybatis: debug
     # 调试 javamail
 #    com.sun.mail: debug

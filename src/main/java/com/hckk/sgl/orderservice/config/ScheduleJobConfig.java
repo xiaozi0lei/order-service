@@ -27,7 +27,7 @@ public class ScheduleJobConfig {
         logger.info("发送订餐通知：");
 
         Map<String, String> map = new HashMap<>();
-        map.put("partyId", "20");
+        map.put("partyId", "37");
         map.put("content", "努力工作记得照顾肚子，快去订餐，错过了就要饿肚子了！！！\n配置 host\n" + orderUrl);
         WeChatServiceImpl weChatService = WeChatServiceImpl.getSingleton();
         weChatService.sendToEverybody(map);
@@ -47,7 +47,7 @@ public class ScheduleJobConfig {
         // 技术部 ID - 37
         logger.info("发送订餐通知：");
         Map<String, String> map = new HashMap<>();
-        map.put("partyId", "20");
+        map.put("partyId", "37");
         map.put("content", "还有五分钟订餐截止，抓住最后机会，快去订餐，错过了就要饿肚子了！！！\n配置 host\n" + orderUrl);
 
         WeChatServiceImpl weChatService = WeChatServiceImpl.getSingleton();

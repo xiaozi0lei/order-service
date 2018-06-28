@@ -4,6 +4,8 @@ import com.hckk.sgl.orderservice.entity.Order;
 import com.hckk.sgl.orderservice.entity.ReturnResult;
 import com.hckk.sgl.orderservice.entity.dto.OrderListDto;
 import com.hckk.sgl.orderservice.service.OrderService;
+import com.yixin.crm.security.client.entity.UpmsUser;
+import com.yixin.crm.security.client.web.bind.annotation.CurrentUser;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,7 @@ import java.util.List;
 /**
  * @author Sun Guolei 2018/6/12 19:42
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/api/order")
 public class OrderController {
@@ -65,10 +68,11 @@ public class OrderController {
 
     @PostMapping("/create")
     @ResponseBody
-    public int create(Order order) {
+    public int create(@CurrentUser UpmsUser currentUser, Order order) {
         // mock 数据，临时解决方案
         order.setUsername("test");
         order.setDepartmentId(0);
+        order.setNickname(currentUser.getUserName());
         return orderService.createOrder(order);
     }
 

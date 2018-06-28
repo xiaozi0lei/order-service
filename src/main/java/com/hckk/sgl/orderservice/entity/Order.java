@@ -23,4 +23,6 @@ public class Order {
     private String departmentName;
     private int firstDepartmentId;
     private String firstDepartmentName;
+
+    private String frontOrderTime;
 }
