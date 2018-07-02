@@ -37,7 +37,7 @@
         WHERE date_format(order_time,'%Y-%m-%d') = #{date}
 
         <if test="userName != null and userName != ''">
-            AND user_name = #{userName}
+            AND user_name = #{username}
         </if>
         <if test="departmentId != null and departmentId != 0">
             AND department_id = #{departmentId}
@@ -49,7 +49,7 @@
             AND address = #{address}
         </if>
         <if test="nickName != null and nickName != ''">
-            AND nick_name = #{nickName}
+            AND nick_name = #{nickname}
         </if>
 
         ORDER BY order_time ASC

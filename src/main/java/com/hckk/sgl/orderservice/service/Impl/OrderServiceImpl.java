@@ -46,6 +46,7 @@ public class OrderServiceImpl implements OrderService {
 
             // 查询当前用户是否已经订过餐
             HashMap<String, String> params = new HashMap<>();
+            params.put("username", order.getUsername());
             params.put("nickname", order.getNickname());
             int num = findOrdersInDate(params).size();
 
@@ -76,6 +77,7 @@ public class OrderServiceImpl implements OrderService {
         String date = today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         transferParams.put("date", date);
         transferParams.put("address", params.get("address"));
+        transferParams.put("username", params.get("username"));
         transferParams.put("nickname", params.get("nickname"));
 
         List<Order> orderList = orderMapper.findOrdersInDate(transferParams);
