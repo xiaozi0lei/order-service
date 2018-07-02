@@ -70,7 +70,7 @@ public class OrderController {
     @ResponseBody
     public int create(@CurrentUser UpmsUser currentUser, Order order) {
         // mock 数据，临时解决方案
-        order.setUsername("test");
+        order.setUsername(currentUser.getUserAccount());
         order.setDepartmentId(0);
         order.setNickname(currentUser.getUserName());
         return orderService.createOrder(order);
