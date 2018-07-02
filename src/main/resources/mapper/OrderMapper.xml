@@ -36,7 +36,7 @@
         FROM orders
         WHERE date_format(order_time,'%Y-%m-%d') = #{date}
 
-        <if test="userName != null and userName != ''">
+        <if test="username != null and username != ''">
             AND user_name = #{username}
         </if>
         <if test="departmentId != null and departmentId != 0">
@@ -48,7 +48,7 @@
         <if test="address != null and address != 2">
             AND address = #{address}
         </if>
-        <if test="nickName != null and nickName != ''">
+        <if test="nickname != null and nickname != ''">
             AND nick_name = #{nickname}
         </if>
 
