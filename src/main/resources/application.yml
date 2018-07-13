@@ -5,6 +5,8 @@ server:
     accesslog:
       enabled: true
 spring:
+  session:
+    store-type: redis
   profiles:
 #    active: prod
     active: dev
